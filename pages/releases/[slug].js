@@ -10,9 +10,9 @@ import {CMS_NAME} from '../../lib/constants';
 import PostHeader from '../../components/post-header';
 import PostBody from '../../components/post-body';
 import Link from 'next/link';
+import CustomLink from '../../components/custom-link';
 
 const Release = ({ code, frontmatter }) => {
-  // console.log('slug', code, frontmatter);
   const Component = React.useMemo(() => getMDXComponent(code), [code]);
   return (
     <Layout>
@@ -46,7 +46,11 @@ const Release = ({ code, frontmatter }) => {
               style={{cursor: 'pointer'}}>
               {frontmatter.excerpt}
             </h2>
-            <Component />
+            <Component
+              components={{
+                a: CustomLink,
+              }}
+            />
           </div>
         </section>
       </Container>
