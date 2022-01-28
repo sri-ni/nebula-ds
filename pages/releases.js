@@ -13,7 +13,7 @@ export default function Releases({releases}) {
   return (
     <Layout>
       <Head>
-        <title>Releases</title>
+        <title>Nebula | Releases</title>
       </Head>
       <Container>
         <section
@@ -38,8 +38,17 @@ export default function Releases({releases}) {
           className="flex-col md:flex-row flex items-center md:justify-between pt-8 pb-8 pl-8 pr-8 bg-gray-50 bg-transparent text-gray-500">
           <ul>
             {releases.map((release, index) => (
-              <li key={index} className="mb-4 underline">
-                <Link href={`/releases/${release.slug}`}>{release.frontmatter.title}</Link>
+              <li key={index} className="mb-4">
+                <Link
+                  href={`/releases/${release.slug}`}
+                >
+                  <a>
+                    <h3 className="underline text-lg font-bold">
+                      {release.frontmatter.title}
+                    </h3>
+                  </a>
+                </Link>
+                <h5>{release.frontmatter.date}</h5>
               </li>
             ))}
           </ul>
@@ -50,7 +59,9 @@ export default function Releases({releases}) {
 }
 
 export const getStaticProps = async () => {
-  const releases = getAllReleases();
+  const releases = getAllReleases()
+    .sort((post1, post2) =>
+      (post1.frontmatter.date > post2.frontmatter.date ? -1 : 1))
 
   return {
     props: {releases},
