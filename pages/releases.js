@@ -60,6 +60,7 @@ export const getStaticProps = async () => {
     );
 
   // console.log('releases', releases);
+  // console.log('releases', releases);
 
   return {
     props: { releases },
