@@ -42,7 +42,7 @@ export default function Releases({ releases }) {
                   </a>
                 </Link>
                 <h5>{release.frontmatter.date}</h5>
-                <p>{release.frontmatter.draft ? 'draft' : 'published'}</p>
+                <p>{release.frontmatter.draft ? 'Draft' : 'Published'}</p>
               </li>
             ))}
           </ul>
