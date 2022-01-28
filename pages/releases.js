@@ -38,7 +38,7 @@ export default function Releases({releases}) {
           className="flex-col md:flex-row flex items-center md:justify-between pt-8 pb-8 pl-8 pr-8 bg-gray-50 bg-transparent text-gray-500">
           <ul>
             {releases.map((release, index) => (
-              <li key={index}>
+              <li key={index} className="mb-4 underline">
                 <Link href={`releases/${release.slug}`}>{release.frontmatter.title}</Link>
               </li>
             ))}
