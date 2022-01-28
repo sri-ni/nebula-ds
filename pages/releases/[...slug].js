@@ -17,7 +17,7 @@ const Release = ({ code, frontmatter }) => {
   return (
     <Layout>
       <Head>
-        <title>Next.js Blog Example with {CMS_NAME}</title>
+        <title>Nebula | {frontmatter.title}</title>
       </Head>
       <Container>
         <section
