@@ -39,7 +39,7 @@ export default function Releases({releases}) {
           <ul>
             {releases.map((release, index) => (
               <li key={index} className="mb-4 underline">
-                <Link href={`releases/${release.slug}`}>{release.frontmatter.title}</Link>
+                <Link href={`/releases/${release.slug}`}>{release.frontmatter.title}</Link>
               </li>
             ))}
           </ul>
