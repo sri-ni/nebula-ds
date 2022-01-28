@@ -17,6 +17,12 @@ export default function Intro() {
         </a>
       </Link>
 
+      <Link href='/releases'>
+        <a className="nav-link text-xl font-regular text-stone-700">
+          Releases
+        </a>
+      </Link>
+
     </section>
   )
 }
