@@ -30,7 +30,6 @@ const Release = ({ code, frontmatter }) => {
             </h1>
           </Link>
 
-
           <Link href='/releases'>
             <a className="nav-link text-xl font-regular text-stone-700">
               Releases
@@ -66,7 +65,9 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = getAllReleases().map(({ slug }) => ({ params: { slug } }));
+  const paths = getAllReleases().map(({ slug }) => ({ params: {
+    slug: slug.split('/'),
+  } }));
   return {
     paths,
     fallback: false,
