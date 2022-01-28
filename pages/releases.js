@@ -49,6 +49,7 @@ export default function Releases({releases}) {
                   </a>
                 </Link>
                 <h5>{release.frontmatter.date}</h5>
+                <p>{(release.frontmatter.draft)? 'draft' : 'published'}</p>
               </li>
             ))}
           </ul>
@@ -60,8 +61,11 @@ export default function Releases({releases}) {
 
 export const getStaticProps = async () => {
   const releases = getAllReleases()
+    // .filter(({frontmatter}) => (frontmatter && !frontmatter.draft))
     .sort((post1, post2) =>
       (post1.frontmatter.date > post2.frontmatter.date ? -1 : 1))
+
+  // console.log('releases', releases);
 
   return {
     props: {releases},
